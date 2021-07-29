@@ -1,0 +1,51 @@
+{
+  "layouts": [
+    {
+      "name": "Welcome",
+      "type": "Workspace",
+      "metadata": {},
+      "components": [
+        {
+          "type": "Workspace",
+          "state": {
+            "children": [
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "window",
+                    "config": {
+                      "appName": "johnwick1",
+                      "context": {}
+                    }
+                  },
+                  {
+                    "type": "window",
+                    "config": {
+                      "appName": "johnwick2",
+                      "context": {}
+                    }
+                  },
+                  {
+                    "type": "window",
+                    "config": {
+                      "appName": "johnwick3",
+                      "context": {}
+                    }
+                  }
+                ],
+                "config": {
+                  "noTabHeader": true
+                }
+              }
+            ],
+            "config": {
+              "name": "Welcome"
+            },
+            "context": {}
+          }
+        }
+      ]
+    }
+  ]
+}

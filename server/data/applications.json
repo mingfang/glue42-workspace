@@ -1,0 +1,34 @@
+{
+  "applications": [
+  {
+    "name": "johnwick1",
+    "type": "window",
+    "details": {
+      "url": "/adapter/https://thumbor.rebelsoft.com/unsafe/600x600/smart/https://media.npr.org/assets/img/2017/02/06/John_Wick_Chapter_Two_wide-6749e4c436d9098ae9ad65f3dfc169ff0f4af2fc.jpg?s=1400/"
+    },
+    "customProperties": {
+      "includeInWorkspaces": true
+    }
+  },
+  {
+    "name": "johnwick2",
+    "type": "window",
+    "details": {
+      "url": "/adapter/https://thumbor.rebelsoft.com/unsafe/600x600/smart/https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/lionsgate-1810080-219613-Full-Image_GalleryBackground-us-US-1622209231058._SX1080_.jpg"
+    },
+    "customProperties": {
+      "includeInWorkspaces": true
+    }
+  },
+  {
+    "name": "johnwick3",
+    "type": "window",
+    "details": {
+      "url": "/adapter/https://thumbor.rebelsoft.com/unsafe/600x600/smart/https://media.newyorker.com/photos/5cdf1ad7339acf8247bfc768/4:3/w_1888,h_1416,c_limit/Richard-JohnWick.jpg"
+    },
+    "customProperties": {
+      "includeInWorkspaces": true
+    }
+  }
+]
+}
