@@ -46,6 +46,105 @@
           }
         }
       ]
+    },
+    {
+      "name": "One",
+      "type": "Workspace",
+      "metadata": {},
+      "components": [
+        {
+          "type": "Workspace",
+          "state": {
+            "children": [
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "window",
+                    "config": {
+                      "appName": "johnwick1",
+                      "context": {}
+                    }
+                  }
+                ],
+                "config": {
+                  "noTabHeader": true
+                }
+              }
+            ],
+            "config": {
+              "name": "Welcome"
+            },
+            "context": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Two",
+      "type": "Workspace",
+      "metadata": {},
+      "components": [
+        {
+          "type": "Workspace",
+          "state": {
+            "children": [
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "window",
+                    "config": {
+                      "appName": "johnwick2",
+                      "context": {}
+                    }
+                  }
+                ],
+                "config": {
+                  "noTabHeader": true
+                }
+              }
+            ],
+            "config": {
+              "name": "Welcome"
+            },
+            "context": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Three",
+      "type": "Workspace",
+      "metadata": {},
+      "components": [
+        {
+          "type": "Workspace",
+          "state": {
+            "children": [
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "window",
+                    "config": {
+                      "appName": "johnwick3",
+                      "context": {}
+                    }
+                  }
+                ],
+                "config": {
+                  "noTabHeader": true
+                }
+              }
+            ],
+            "config": {
+              "name": "Welcome"
+            },
+            "context": {}
+          }
+        }
+      ]
     }
   ]
 }

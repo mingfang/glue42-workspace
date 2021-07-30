@@ -17,21 +17,39 @@ import layouts from './layouts'
 import {fetchFromServer} from "./utils";
 
 const bootstrap = async (glue, config) => {
-  function importApplications() {
-    fetchFromServer('/api/applications').then(res => {
+  async function importApplications() {
+    await fetchFromServer('/api/applications').then(res => {
       console.log('applications', res)
       glue.appManager.inMemory.import(res.applications, "merge");
     });
   }
-  function importLayouts() {
-    fetchFromServer('/api/layouts').then(res => {
+  async function importLayouts() {
+    await fetchFromServer('/api/layouts').then(res => {
       console.log('layouts', res)
       glue.layouts.import(res.layouts, "merge");
     });
   }
+  async function openWorkspaces() {
+    const layouts = await glue.layouts.getAll("Workspace");
+    console.log('all layouts', layouts)
+    for (let i = 0; i < layouts.length; i++) {
+      await glue.workspaces.restoreWorkspace(layouts[i].name, {
+        newFrame: false,
+      });
+    }
 
-  importApplications();
-  importLayouts();
+    await glue.workspaces.getAllWorkspaces()
+      .then((workspaces)=> console.log('workspaces', workspaces))
+    // hack to close the default workspace
+    await glue.workspaces.getAllWorkspaces()
+      .then((workspaces) => workspaces[0].close());
+
+  }
+
+  await importApplications();
+  await importLayouts();
+  await openWorkspaces()
+
 };
 
 const glue42settings = {
@@ -70,31 +88,7 @@ console.log("settings", glue42settings)
 export default function (props) {
   return (
     <GlueProvider settings={glue42settings}>
-      <SampleButton/>
       <Workspaces/>
     </GlueProvider>
   );
 }
-
-function SampleButton(props) {
-  const buttonHandler = useGlue((glue) => async (e) => {
-    openWorkspace(glue)
-  });
-
-  function openWorkspace(glue) {
-    glue.workspaces.getAllWorkspaces()
-      .then((workspaces)=> console.log('workspaces', workspaces))
-
-    glue.workspaces.restoreWorkspace("Welcome", {
-      newFrame: false,
-    });
-    glue.workspaces.getAllWorkspaces()
-      .then((workspaces) => workspaces[0].close());
-
-  }
-
-  return (<>
-    <button onClick={buttonHandler}>Click Here</button>
-  </>)
-}
-
