@@ -23,12 +23,14 @@ const bootstrap = async (glue, config) => {
       glue.appManager.inMemory.import(res.applications, "merge");
     });
   }
+
   async function importLayouts() {
     await fetchFromServer('/api/layouts').then(res => {
       console.log('layouts', res)
       glue.layouts.import(res.layouts, "merge");
     });
   }
+
   async function openWorkspaces() {
     const layouts = await glue.layouts.getAll("Workspace");
     console.log('allLayouts', layouts)
@@ -42,7 +44,9 @@ const bootstrap = async (glue, config) => {
     await glue.workspaces.getAllWorkspaces()
       .then((workspaces) => workspaces[0].close());
 
-    // focus on workspace
+  }
+
+  async function focusWorkspace() {
     const allWorkspaces = await glue.workspaces.getAllWorkspaces()
     console.log('allWorkspaces', allWorkspaces)
     const toFocus = await glue.workspaces.getWorkspace(workspace => workspace.layoutName === config.pathname)
@@ -57,6 +61,7 @@ const bootstrap = async (glue, config) => {
   await importApplications();
   await importLayouts();
   await openWorkspaces()
+  await focusWorkspace();
 
 };
 
