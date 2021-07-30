@@ -11,6 +11,7 @@ ReactDOM.render(
     <React.Suspense fallback={<></>}>
     <Switch>
         <Route path="/adapter/:url" component={Adapter}/>
+        <Route path="/:workspace" component={WorkspaceApp}/>
         <Route path="/" component={WorkspaceApp}/>
     </Switch>
     </React.Suspense>

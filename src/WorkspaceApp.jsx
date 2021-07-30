@@ -31,19 +31,27 @@ const bootstrap = async (glue, config) => {
   }
   async function openWorkspaces() {
     const layouts = await glue.layouts.getAll("Workspace");
-    console.log('all layouts', layouts)
+    console.log('allLayouts', layouts)
     for (let i = 0; i < layouts.length; i++) {
       await glue.workspaces.restoreWorkspace(layouts[i].name, {
         newFrame: false,
       });
     }
 
-    await glue.workspaces.getAllWorkspaces()
-      .then((workspaces)=> console.log('workspaces', workspaces))
     // hack to close the default workspace
     await glue.workspaces.getAllWorkspaces()
       .then((workspaces) => workspaces[0].close());
 
+    // focus on workspace
+    const allWorkspaces = await glue.workspaces.getAllWorkspaces()
+    console.log('allWorkspaces', allWorkspaces)
+    const toFocus = await glue.workspaces.getWorkspace(workspace => workspace.layoutName === config.pathname)
+    console.log('toFocus', toFocus)
+    if (toFocus) {
+      toFocus.focus()
+    } else {
+      allWorkspaces[0].focus()
+    }
   }
 
   await importApplications();
@@ -52,40 +60,44 @@ const bootstrap = async (glue, config) => {
 
 };
 
-const glue42settings = {
-  webPlatform: {
-    factory: GlueWebPlatform,
-    config: {
-      glue: {
-        libraries: [GlueWorkspaces],
-      },
-      workspaces: {
-        src: "/",
-        isFrame: true,
-        frameCache: false
-      },
-      channels,
-      applications,
-      layouts,
-      plugins: {
-        // Plugin definitions.
-        definitions: [
-          {
-            name: "bootstrap",
-            config: {},
-            start: bootstrap
-          }
-        ]
-      }
-    }
-  }
-}
-
-console.log("settings", glue42settings)
-
 // main app render
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (props) {
+  const pathname = props.location.pathname.split('/')[1]
+  console.log('pathname', pathname)
+
+  const glue42settings = {
+    webPlatform: {
+      factory: GlueWebPlatform,
+      config: {
+        glue: {
+          libraries: [GlueWorkspaces],
+        },
+        workspaces: {
+          src: "/",
+          isFrame: true,
+          frameCache: false
+        },
+        channels,
+        applications,
+        layouts,
+        plugins: {
+          // Plugin definitions.
+          definitions: [
+            {
+              name: "bootstrap",
+              config: {
+                pathname: pathname
+              },
+              start: bootstrap
+            }
+          ]
+        }
+      }
+    }
+  }
+  console.log("settings", glue42settings)
+
   return (
     <GlueProvider settings={glue42settings}>
       <Workspaces/>
