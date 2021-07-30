@@ -16,21 +16,21 @@
                     "type": "window",
                     "config": {
                       "appName": "johnwick1",
-                      "context": {}
+                      "showCloseButton": false
                     }
                   },
                   {
                     "type": "window",
                     "config": {
                       "appName": "johnwick2",
-                      "context": {}
+                      "showCloseButton": false
                     }
                   },
                   {
                     "type": "window",
                     "config": {
                       "appName": "johnwick3",
-                      "context": {}
+                      "showCloseButton": false
                     }
                   }
                 ],
@@ -62,7 +62,7 @@
                     "type": "window",
                     "config": {
                       "appName": "johnwick1",
-                      "context": {}
+                      "showCloseButton": false
                     }
                   }
                 ]
@@ -93,7 +93,7 @@
                     "type": "window",
                     "config": {
                       "appName": "johnwick2",
-                      "context": {}
+                      "showCloseButton": false
                     }
                   }
                 ]
@@ -124,9 +124,8 @@
                     "type": "window",
                     "config": {
                       "appName": "johnwick3",
-                      "config": {},
-                      "context": {}
-                    }
+                      "showCloseButton": false
+                      }
                   }
                 ],
                 "config": {}
