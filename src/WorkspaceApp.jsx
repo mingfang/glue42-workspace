@@ -47,16 +47,35 @@ const bootstrap = async (glue, config) => {
   }
 
   async function focusWorkspace() {
-    const allWorkspaces = await glue.workspaces.getAllWorkspaces()
-    console.log('allWorkspaces', allWorkspaces)
-    const toFocus = await glue.workspaces.getWorkspace(workspace => workspace.layoutName === config.pathname)
-    console.log('toFocus', toFocus)
-    if (toFocus) {
-      toFocus.focus()
-    } else {
-      allWorkspaces[0].focus()
+    const focusName = config.pathname;
+    let focusWorkspace = await glue.workspaces.getWorkspace(workspace => workspace.layoutName === focusName)
+    console.log('focusWorkspace', focusWorkspace)
+
+    if (!focusWorkspace) {
+      const allWorkspaces = await glue.workspaces.getAllWorkspaces()
+      if (allWorkspaces.length > 0) {
+        focusWorkspace = allWorkspaces[0]
+      }
+    }
+    if (focusWorkspace) {
+      focusWorkspace.focus();
+    }
+
+    // update address bar to match selected workspace
+    if (focusWorkspace) {
+      await focusWorkspace.frame.onWorkspaceSelected(workspace => {
+        console.log('selected', workspace)
+        window.history.pushState(workspace, workspace.title, `/${workspace.layoutName}`);
+      })
     }
   }
+
+/*
+  await glue.workspaces.onWorkspaceSelected(workspace => {
+    console.log('selected', workspace)
+    window.history.pushState(workspace, workspace.title, `/${workspace.layoutName}`);
+  })
+*/
 
   await importApplications();
   await importLayouts();
