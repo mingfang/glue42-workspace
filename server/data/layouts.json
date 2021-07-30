@@ -38,7 +38,8 @@
               }
             ],
             "config": {
-              "showCloseButton": false
+              "showCloseButton": false,
+              "allowExtract": false
             },
             "context": {}
           }
@@ -68,7 +69,8 @@
               }
             ],
             "config": {
-              "showCloseButton": false
+              "showCloseButton": false,
+              "allowExtract": false
             },
             "context": {}
           }
@@ -98,7 +100,8 @@
               }
             ],
             "config": {
-              "showCloseButton": false
+              "showCloseButton": false,
+              "allowExtract": false
             },
             "context": {}
           }
@@ -130,7 +133,8 @@
               }
             ],
             "config": {
-              "showCloseButton": false
+              "showCloseButton": false,
+              "allowExtract": false
             },
             "context": {}
           }
