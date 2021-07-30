@@ -21,6 +21,8 @@ const BootstrapPlugin = async (glue, config) => {
     for (let i = 0; i < layouts.length; i++) {
       await glue.workspaces.restoreWorkspace(layouts[i].name, {
         newFrame: false,
+        loadingStrategy: "delayed",
+        noTabHeader: false,
       });
     }
 

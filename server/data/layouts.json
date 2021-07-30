@@ -34,13 +34,11 @@
                     }
                   }
                 ],
-                "config": {
-                  "noTabHeader": true
-                }
+                "config": {}
               }
             ],
             "config": {
-              "name": "Welcome"
+              "showCloseButton": false
             },
             "context": {}
           }
@@ -66,14 +64,11 @@
                       "context": {}
                     }
                   }
-                ],
-                "config": {
-                  "noTabHeader": true
-                }
+                ]
               }
             ],
             "config": {
-              "name": "Welcome"
+              "showCloseButton": false
             },
             "context": {}
           }
@@ -99,14 +94,11 @@
                       "context": {}
                     }
                   }
-                ],
-                "config": {
-                  "noTabHeader": true
-                }
+                ]
               }
             ],
             "config": {
-              "name": "Welcome"
+              "showCloseButton": false
             },
             "context": {}
           }
@@ -129,17 +121,16 @@
                     "type": "window",
                     "config": {
                       "appName": "johnwick3",
+                      "config": {},
                       "context": {}
                     }
                   }
                 ],
-                "config": {
-                  "noTabHeader": true
-                }
+                "config": {}
               }
             ],
             "config": {
-              "name": "Welcome"
+              "showCloseButton": false
             },
             "context": {}
           }
