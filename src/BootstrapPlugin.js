@@ -19,10 +19,17 @@ const BootstrapPlugin = async (glue, config) => {
     const layouts = await glue.layouts.getAll("Workspace");
     console.log('allLayouts', layouts)
     for (let i = 0; i < layouts.length; i++) {
-      await glue.workspaces.restoreWorkspace(layouts[i].name, {
+      const workspace = await glue.workspaces.restoreWorkspace(layouts[i].name, {
         newFrame: false,
-        loadingStrategy: "delayed",
         noTabHeader: false,
+      });
+      await workspace.lock(lockConfig => {
+        lockConfig.allowExtract = false;
+        lockConfig.showCloseButton = false;
+        lockConfig.showAddWindowButtons = false;
+        lockConfig.showEjectButtons = false;
+        lockConfig.showWindowCloseButtons = false;
+        return lockConfig;
       });
     }
 

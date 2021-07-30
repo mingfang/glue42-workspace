@@ -15,32 +15,26 @@
                   {
                     "type": "window",
                     "config": {
-                      "appName": "johnwick1",
-                      "showCloseButton": false
+                      "appName": "johnwick1"
                     }
                   },
                   {
                     "type": "window",
                     "config": {
-                      "appName": "johnwick2",
-                      "showCloseButton": false
+                      "appName": "johnwick2"
                     }
                   },
                   {
                     "type": "window",
                     "config": {
-                      "appName": "johnwick3",
-                      "showCloseButton": false
+                      "appName": "johnwick3"
                     }
                   }
                 ],
                 "config": {}
               }
             ],
-            "config": {
-              "showCloseButton": false,
-              "allowExtract": false
-            },
+            "config": {},
             "context": {}
           }
         }
@@ -61,17 +55,13 @@
                   {
                     "type": "window",
                     "config": {
-                      "appName": "johnwick1",
-                      "showCloseButton": false
+                      "appName": "johnwick1"
                     }
                   }
                 ]
               }
             ],
-            "config": {
-              "showCloseButton": false,
-              "allowExtract": false
-            },
+            "config": {},
             "context": {}
           }
         }
@@ -92,17 +82,13 @@
                   {
                     "type": "window",
                     "config": {
-                      "appName": "johnwick2",
-                      "showCloseButton": false
+                      "appName": "johnwick2"
                     }
                   }
                 ]
               }
             ],
-            "config": {
-              "showCloseButton": false,
-              "allowExtract": false
-            },
+            "config": {},
             "context": {}
           }
         }
@@ -123,18 +109,13 @@
                   {
                     "type": "window",
                     "config": {
-                      "appName": "johnwick3",
-                      "showCloseButton": false
-                      }
+                      "appName": "johnwick3"
+                    }
                   }
-                ],
-                "config": {}
+                ]
               }
             ],
-            "config": {
-              "showCloseButton": false,
-              "allowExtract": false
-            },
+            "config": {},
             "context": {}
           }
         }

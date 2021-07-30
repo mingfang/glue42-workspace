@@ -57,7 +57,11 @@ export default function (props) {
 
   return (
     <GlueProvider settings={glue42settings}>
-      <Workspaces/>
+      <Workspaces components={{
+        header: {
+          AddWorkspaceComponent: () => <></>
+        }
+      }}/>
       <HistoryListener/>
     </GlueProvider>
   );
