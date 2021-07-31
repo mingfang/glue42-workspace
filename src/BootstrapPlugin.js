@@ -23,6 +23,8 @@ const BootstrapPlugin = async (glue, config) => {
         newFrame: false,
         noTabHeader: false,
       });
+
+      // lock workspaces
       await workspace.lock(lockConfig => {
         lockConfig.allowExtract = false;
         lockConfig.showCloseButton = false;
@@ -31,6 +33,13 @@ const BootstrapPlugin = async (glue, config) => {
         lockConfig.showWindowCloseButtons = false;
         return lockConfig;
       });
+
+      // lock groups
+      workspace.getAllGroups(group => true)
+        .forEach(group => group.lock(lockConfig => {
+          lockConfig.showMaximizeButton = false
+          return lockConfig
+        }));
     }
 
     // hack to close the default workspace
